@@ -17,23 +17,23 @@ var server = http.createServer(function(request, response){
   var queryObject = parsedUrl.query
   var method = request.method
 
-  /******** 从这里开始看，上面不要看 ************/
+
 
   console.log('HTTP 路径为\n' + path)
-  if(path == '/style.js'){
-    response.setHeader('Content-Type', 'text/css; charset=utf-8')
-    response.write('body{background-color: #ddd;}h1{color: red;}')
+  if(path == '/'){
+    response.setHeader('Content-Type', 'text/html; charset=utf-8')
+    response.write('html哈哈在这里耶')
     response.end()
-  }else if(path == '/script.html'){
+  }else if(path == '/main.js'){
     response.setHeader('Content-Type', 'text/javascript; charset=utf-8')
-    response.write('alert("这是JS执行的")')
+    response.write('alert("这是JS执行的命令哦，记住了吗")')
     response.end()
-  }else if(path == '/index.css'){
+  }else if(path == '/style.css'){
     response.setHeader('Content-Type', 'text/html; charset=utf-8')
     response.write('<!DOCTYPE>\n<html>'  + 
       '<head><link rel="stylesheet" href="/style.js">' +
       '</head><body>'  +
-      '<h1>你好</h1>' +
+      '<h1>你好这里是css，欢迎进入</h1>' +
       '<script src="/script.html"></script>' +
       '</body></html>')
     response.end()
@@ -42,7 +42,7 @@ var server = http.createServer(function(request, response){
     response.end()
   }
 
-  /******** 代码结束，下面不要看 ************/
+  
 })
 
 server.listen(port)
